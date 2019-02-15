@@ -1,0 +1,28 @@
+###############################################
+######### PBS preabmle and parameters #########
+###############################################
+
+#PBS -t 1-6
+
+# -t is array parameter, the same job will be submitted the length of the input,
+# each with its own unique array id ($PBS_ARRAYID)
+
+cd $PBS_O_WORKDIR
+
+model_list=('model_1' 'model_2' 'model_3' 'model_4' 'model_5' 'model6')
+# vector index starts at 0 so shift array by one
+which_model=$(($PBS_ARRAYID - 1))
+
+# print out which model is being run in each job
+echo Using ${model_list[$which_model]}
+
+# Using $PBS_ARRAYID to select parameter set
+Rscript code/main.R ${model_list[$which_model]}
+# in main.R add the following:
+# model <- as.character(commandArgs(TRUE)) # recieve input from model
+# getAucs(model)
+
+
+echo "Script complete"
+
+qstat -f $PBS_JOBID
