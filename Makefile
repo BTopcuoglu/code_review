@@ -82,7 +82,16 @@ output.in.secondary:	data/baxter.0.03.subsample.shared\
 					$(CODE)/model_pipeline.R\
 					$(CODE)/model_interpret.R\
 					$(CODE)/main.R\
-					$(CODE)/model_selection.R
+					$(CODE)/model_selection.R\				
+					$(L1_BEST)\
+					$(L1_IMP)\
+					$(L1_ALL_FILE)\
+					$(L2_BEST)\
+					$(L2_IMP)\
+					$(L2_ALL_FILE)\
+					$(Logit_BEST)\
+					$(Logit_IMP)\
+					$(Logit_ALL_FILE)
 	qsub L2_Logistic_Regression.pbs
 	qsub L1_Linear_SVM.pbs
 	qsub L2_Linear_SVM.pbs
