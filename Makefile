@@ -65,7 +65,18 @@ Logit_ALL_OUT_FILE=$(addprefix data/temp/all_hp_results_L2_Logistic_Regression_,
 Logit_ALL_FILE=$(addsuffix .csv,$(Logit_ALL_OUT_FILE))
 ###################################################################
 
-.PHONY:	data/baxter.0.03.subsample.shared\
+$(L1_BEST)\
+$(L1_IMP)\
+$(L1_ALL_FILE)\
+$(L2_BEST)\
+$(L2_IMP)\
+$(L2_ALL_FILE)\
+$(Logit_BEST)\
+$(Logit_IMP)\
+$(Logit_ALL_FILE)	:	output.in.secondary;
+
+.SECONDARY:	output.in.secondary
+output.in.secondary:	data/baxter.0.03.subsample.shared\
 					data/metadata.tsv\
 					$(CODE)/generateAUCs.R\
 					$(CODE)/model_pipeline.R\
@@ -87,16 +98,8 @@ $(PROC)/combined_all_im_features_results_L2_Logistic_Regression.csv\
 $(PROC)/combined_all_hp_results_L2_Logistic_Regression.csv\
 $(PROC)/combined_best_hp_results_L2_Linear_SVM.csv\
 $(PROC)/combined_all_im_features_results_L2_Linear_SVM.csv\
-$(PROC)/combined_all_hp_results_L2_Linear_SVM.csv	:	code/cat_csv_files.sh\
-						$(L1_BEST)\
-						$(L1_IMP)\
-						$(L1_ALL_FILE)\
-						$(L2_BEST)\
-						$(L2_IMP)\
-						$(L2_ALL_FILE)\
-						$(Logit_BEST)\
-						$(Logit_IMP)\
-						$(Logit_ALL_FILE)
+$(PROC)/combined_all_hp_results_L2_Linear_SVM.csv	:	output.in.secondary\
+														code/cat_csv_files.sh\
 		bash code/cat_csv_files.sh
 
 
