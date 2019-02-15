@@ -105,9 +105,10 @@ $(Logit_ALL_FILE)	:	output.in.secondary;
 
 .SECONDARY:	output.in.secondary
 
-output.in.secondary:	qsub L2_Logistic_Regression.pbs
-						qsub L1_Linear_SVM.pbs
-						qsub L2_Linear_SVM.pbs
+output.in.secondary:
+	qsub L2_Logistic_Regression.pbs
+	qsub L1_Linear_SVM.pbs
+	qsub L2_Linear_SVM.pbs
 
 
 
