@@ -73,9 +73,9 @@ $(L2_IMP)\
 $(L2_ALL_FILE)\
 $(Logit_BEST)\
 $(Logit_IMP)\
-$(Logit_ALL_FILE)	:	output.in.intermediate;
+$(Logit_ALL_FILE)	:	output.in.secondary;
 
-.INTERMEDIATE:	output.in.intermediate
+.SECONDARY:	output.in.secondary
 output.in.intermediate:	data/baxter.0.03.subsample.shared\
 					data/metadata.tsv\
 					$(CODE)/generateAUCs.R\
