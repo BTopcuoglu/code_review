@@ -9,12 +9,12 @@
 #PBS -A pschloss_fluxod
 #PBS -q fluxod
 #PBS -l qos=flux
-#PBS -t 1-2
+#PBS -t 1-100
 
 # Load Modules:
-#  1) R/3.5.0  
+#  1) R/3.5.0
 #  2)  r-biomed-libs
-#  3) run Rscript code/learning/load_caret_models_flux.R 
+#  3) run Rscript code/learning/load_caret_models_flux.R
 
 # -t is array parameter, the same job will be submitted the length of the input,
 # each with its own unique array id ($PBS_ARRAYID)
