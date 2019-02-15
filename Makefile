@@ -67,7 +67,7 @@ Logit_ALL_FILE=$(addsuffix .csv,$(Logit_ALL_OUT_FILE))
 
 
 
-$(L1_BEST):	data/baxter.0.03.subsample.shared\
+$(L1_BEST_FILE):	data/baxter.0.03.subsample.shared\
 					data/metadata.tsv\
 					$(CODE)/generateAUCs.R\
 					$(CODE)/model_pipeline.R\
@@ -81,7 +81,7 @@ $(L1_BEST):	data/baxter.0.03.subsample.shared\
 
 
 $(PROC)/combined_best_hp_results_L1_Linear_SVM.csv	:	code/cat_csv_files.sh\
-														$(L1_BEST)
+														$(L1_BEST_FILE)
 		bash code/cat_csv_files.sh
 
 
