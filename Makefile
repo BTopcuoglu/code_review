@@ -65,18 +65,7 @@ Logit_ALL_OUT_FILE=$(addprefix data/temp/all_hp_results_L2_Logistic_Regression_,
 Logit_ALL_FILE=$(addsuffix .csv,$(Logit_ALL_OUT_FILE))
 ###################################################################
 
-$(L1_BEST)\
-$(L1_IMP)\
-$(L1_ALL_FILE)\
-$(L2_BEST)\
-$(L2_IMP)\
-$(L2_ALL_FILE)\
-$(Logit_BEST)\
-$(Logit_IMP)\
-$(Logit_ALL_FILE)	:	output.in.secondary;
-
-.PRECIOUS:	output.in.secondary
-output.in.secondary:	data/baxter.0.03.subsample.shared\
+.PHONY:	data/baxter.0.03.subsample.shared\
 					data/metadata.tsv\
 					$(CODE)/generateAUCs.R\
 					$(CODE)/model_pipeline.R\
