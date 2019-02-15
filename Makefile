@@ -28,7 +28,7 @@ data/metadata.tsv	:	code/learning/load_datasets.batch
 ################################################################################
 
 # Define number of the array that .pbf file runs
-OUT_NO=$(shell seq 0 19)
+OUT_NO=$(shell seq 0 1)
 
 ######### L1 Linear SVM files .pbs files generate #################
 L1_IMP_OUT_FILE=$(addprefix data/temp/all_imp_features_results_L1_Linear_SVM_,$(OUT_NO))
@@ -67,23 +67,18 @@ Logit_ALL_FILE=$(addsuffix .csv,$(Logit_ALL_OUT_FILE))
 
 
 
-$(L1_BEST_FILE):	data/baxter.0.03.subsample.shared\
-					data/metadata.tsv\
-					$(CODE)/generateAUCs.R\
-					$(CODE)/model_pipeline.R\
-					$(CODE)/model_interpret.R\
-					$(CODE)/main.R\
-					$(CODE)/model_selection.R
-	qsub L1_Linear_SVM.pbs
-
-
-
-
-
-$(PROC)/combined_best_hp_results_L1_Linear_SVM.csv	:	code/cat_csv_files.sh\
-														$(L1_BEST_FILE)
-		bash code/cat_csv_files.sh
-
+$(PROC)/combined_best_hp_results_L1_Linear_SVM.csv:	data/baxter.0.03.subsample.shared\
+													data/metadata.tsv\
+													$(L1_BEST_FILE)
+													$(CODE)/generateAUCs.R\
+													$(CODE)/model_pipeline.R\
+													$(CODE)/model_interpret.R\
+													$(CODE)/main.R\
+													$(CODE)/model_selection.R\
+													code/cat_csv_files.sh\
+													L1_Linear_SVM.pbs
+			qsub -W block=true L1_Linear_SVM.pbs
+			bash code/cat_csv_files.sh
 
 
 ################################################################################
