@@ -76,7 +76,8 @@ $(PROC)/combined_best_hp_results_L1_Linear_SVM.csv:	data/baxter.0.03.subsample.s
 													$(CODE)/model_selection.R\
 													code/cat_csv_files.sh\
 													L1_Linear_SVM.pbs
-			qsub -W block=true L1_Linear_SVM.pbs
+			qsub L1_Linear_SVM.pbs
+			bash code/test_sleep.sh
 			bash code/cat_csv_files.sh
 
 
