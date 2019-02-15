@@ -98,10 +98,7 @@ $(PROC)/combined_all_im_features_results_L2_Logistic_Regression.csv\
 $(PROC)/combined_all_hp_results_L2_Logistic_Regression.csv\
 $(PROC)/combined_best_hp_results_L2_Linear_SVM.csv\
 $(PROC)/combined_all_im_features_results_L2_Linear_SVM.csv\
-$(PROC)/combined_all_hp_results_L2_Linear_SVM.csv	:	input.in.intermediate;
-
-.INTERMEDIATE:	input.in.intermediate
-input.in.intermediate:	code/cat_csv_files.sh\
+$(PROC)/combined_all_hp_results_L2_Linear_SVM.csv	:	code/cat_csv_files.sh\
 						$(L1_BEST)\
 						$(L1_IMP)\
 						$(L1_ALL_FILE)\
