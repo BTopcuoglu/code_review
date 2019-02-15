@@ -65,55 +65,6 @@ Logit_ALL_OUT_FILE=$(addprefix data/temp/all_hp_results_L2_Logistic_Regression_,
 Logit_ALL_FILE=$(addsuffix .csv,$(Logit_ALL_OUT_FILE))
 ###################################################################
 
-
-######### RBF SVM files .pbs files generate #############
-RBF_IMP_OUT_FILE=$(addprefix data/temp/all_imp_features_results_RBF_SVM_,$(OUT_NO))
-RBF_IMP=$(addsuffix .csv,$(RBF_IMP_OUT_FILE))
-
-RBF_BEST_OUT_FILE=$(addprefix data/temp/best_hp_results_RBF_SVM_,$(OUT_NO))
-RBF_BEST=$(addsuffix .csv,$(RBF_BEST_OUT_FILE))
-
-RBF_ALL_OUT_FILE=$(addprefix data/temp/all_hp_results_RBF_SVM_,$(OUT_NO))
-RBF_ALL_FILE=$(addsuffix .csv,$(RBF_ALL_OUT_FILE))
-###################################################################
-
-
-######### Decision Tree files .pbs files generate #############
-DT_IMP_OUT_FILE=$(addprefix data/temp/all_imp_features_results_Decision_Tree_,$(OUT_NO))
-DT_IMP=$(addsuffix .csv,$(DT_IMP_OUT_FILE))
-
-DT_BEST_OUT_FILE=$(addprefix data/temp/best_hp_results_Decision_Tree_,$(OUT_NO))
-DT_BEST=$(addsuffix .csv,$(DT_BEST_OUT_FILE))
-
-DT_ALL_OUT_FILE=$(addprefix data/temp/all_hp_results_Decision_Tree_,$(OUT_NO))
-DT_ALL_FILE=$(addsuffix .csv,$(DT_ALL_OUT_FILE))
-###################################################################
-
-
-######### Random Forest files .pbs files generate #############
-RF_IMP_OUT_FILE=$(addprefix data/temp/all_imp_features_results_Random_Forest_,$(OUT_NO))
-RF_IMP=$(addsuffix .csv,$(RF_IMP_OUT_FILE))
-
-RF_BEST_OUT_FILE=$(addprefix data/temp/best_hp_results_Random_Forest_,$(OUT_NO))
-RF_BEST=$(addsuffix .csv,$(RF_BEST_OUT_FILE))
-
-RF_ALL_OUT_FILE=$(addprefix data/temp/all_hp_results_Random_Forest_,$(OUT_NO))
-RF_ALL_FILE=$(addsuffix .csv,$(RF_ALL_OUT_FILE))
-###################################################################
-
-
-######### XGBOOST files .pbs files generate #############
-XG_IMP_OUT_FILE=$(addprefix data/temp/all_imp_features_results_XGBoost_,$(OUT_NO))
-XG_IMP=$(addsuffix .csv,$(XG_IMP_OUT_FILE))
-
-XG_BEST_OUT_FILE=$(addprefix data/temp/best_hp_results_XGBoost_,$(OUT_NO))
-XG_BEST=$(addsuffix .csv,$(XG_BEST_OUT_FILE))
-
-XG_ALL_OUT_FILE=$(addprefix data/temp/all_hp_results_XGBoost_,$(OUT_NO))
-XG_ALL_FILE=$(addsuffix .csv,$(XG_ALL_OUT_FILE))
-###################################################################
-
-
 $(L1_BEST)\
 $(L1_IMP)\
 $(L1_ALL_FILE)\
@@ -122,19 +73,7 @@ $(L2_IMP)\
 $(L2_ALL_FILE)\
 $(Logit_BEST)\
 $(Logit_IMP)\
-$(Logit_ALL_FILE)\
-$(RBF_BEST)\
-$(RBF_IMP)\
-$(RBF_ALL_FILE)\
-$(DT_BEST)\
-$(DT_IMP)\
-$(DT_ALL_FILE)\
-$(RF_BEST)\
-$(RF_IMP)\
-$(RF_ALL_FILE)\
-$(XG_IMP)\
-$(XG_ALL_FILE)\
-$(XG_BEST)	:	output.in.intermediate;
+$(Logit_ALL_FILE)	:	output.in.intermediate;
 
 .INTERMEDIATE:	output.in.intermediate
 output.in.intermediate:	data/baxter.0.03.subsample.shared\
@@ -147,10 +86,7 @@ output.in.intermediate:	data/baxter.0.03.subsample.shared\
 	qsub L2_Logistic_Regression.pbs\
 	qsub L1_Linear_SVM.pbs\
 	qsub L2_Linear_SVM.pbs\
-	qsub RBF_SVM.pbs\
-	qsub Decision_Tree.pbs\
-	qsub Random_Forest.pbs\
-	qsub XGBoost.pbs
+
 
 
 
@@ -162,19 +98,7 @@ $(PROC)/combined_all_im_features_results_L2_Logistic_Regression.csv\
 $(PROC)/combined_all_hp_results_L2_Logistic_Regression.csv\
 $(PROC)/combined_best_hp_results_L2_Linear_SVM.csv\
 $(PROC)/combined_all_im_features_results_L2_Linear_SVM.csv\
-$(PROC)/combined_all_hp_results_L2_Linear_SVM.csv\
-$(PROC)/combined_best_hp_results_RBF_SVM.csv\
-$(PROC)/combined_all_im_features_results_RBF_SVM.csv\
-$(PROC)/combined_all_hp_results_RBF_SVM.csv\
-$(PROC)/combined_best_hp_results_Decision_Tree.csv\
-$(PROC)/combined_all_im_features_results_Decision_Tree.csv\
-$(PROC)/combined_all_hp_results_Decision_Tree.csv\
-$(PROC)/combined_best_hp_results_Random_Forest.csv\
-$(PROC)/combined_all_im_features_results_Random_Forest.csv\
-$(PROC)/combined_all_hp_results_Random_Forest.csv\
-$(PROC)/combined_best_hp_results_XGBoost.csv\
-$(PROC)/combined_all_im_features_results_XGBoost.csv\
-$(PROC)/combined_all_hp_results_XGBoost.csv	:	input.in.intermediate;
+$(PROC)/combined_all_hp_results_L2_Linear_SVM.csv	:	input.in.intermediate;
 
 .INTERMEDIATE:	input.in.intermediate
 input.in.intermediate:	code/cat_csv_files_test.sh\
@@ -196,11 +120,7 @@ $(FIGS)/Figure_1.pdf :	$(CODE)/functions.R\
 						$(CODE)/Figure1.R\
 						$(PROC)/combined_best_hp_results_L2_Logistic_Regression.csv\
 						$(PROC)/combined_best_hp_results_L1_Linear_SVM.csv\
-						$(PROC)/combined_best_hp_results_L2_Linear_SVM.csv\
-						$(PROC)/combined_best_hp_results_RBF_SVM.csv\
-						$(PROC)/combined_best_hp_results_Decision_Tree.csv\
-						$(PROC)/combined_best_hp_results_Random_Forest.csv\
-						$(PROC)/combined_best_hp_results_XGBoost.csv
+						$(PROC)/combined_best_hp_results_L2_Linear_SVM.csv
 	Rscript $(CODE)/Figure1.R
 
 # Figure 2 shows the hyper-parameter tuning of all the models tested.
@@ -208,11 +128,7 @@ $(FIGS)/Figure_2.pdf :	$(CODE)/functions.R\
 						$(CODE)/Figure2.R\
 						$(PROC)/combined_all_hp_results_L2_Logistic_Regression.csv\
 						$(PROC)/combined_all_hp_results_L1_Linear_SVM.csv\
-						$(PROC)/combined_all_hp_results_L2_Linear_SVM.csv\
-						$(PROC)/combined_all_hp_results_RBF_SVM.csv\
-						$(PROC)/combined_all_hp_results_Decision_Tree.csv\
-						$(PROC)/combined_all_hp_results_Random_Forest.csv\
-						$(PROC)/combined_all_hp_results_XGBoost.csv
+						$(PROC)/combined_all_hp_results_L2_Linear_SVM.csv
 	Rscript $(CODE)/Figure2.R
 
 # Table 1 is a summary of the properties of all the models tested.
