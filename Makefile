@@ -69,7 +69,7 @@ Logit_ALL_FILE=$(addsuffix .csv,$(Logit_ALL_OUT_FILE))
 
 $(PROC)/combined_best_hp_results_L1_Linear_SVM.csv:	data/baxter.0.03.subsample.shared\
 													data/metadata.tsv\
-													$(L1_BEST_FILE)
+													$(L1_BEST_FILE)\
 													$(CODE)/generateAUCs.R\
 													$(CODE)/model_pipeline.R\
 													$(CODE)/model_interpret.R\
