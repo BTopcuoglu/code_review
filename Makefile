@@ -28,7 +28,7 @@ data/metadata.tsv	:	code/learning/load_datasets.batch
 ################################################################################
 
 # Define number of the array that .pbf file runs
-OUT_NO=$(shell seq 0 99)
+OUT_NO=$(shell seq 0 19)
 
 ######### L1 Linear SVM files .pbs files generate #################
 L1_IMP_OUT_FILE=$(addprefix data/temp/all_imp_features_results_L1_Linear_SVM_,$(OUT_NO))
