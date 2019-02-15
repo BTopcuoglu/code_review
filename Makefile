@@ -101,9 +101,9 @@ $(PROC)/combined_all_im_features_results_L2_Linear_SVM.csv\
 $(PROC)/combined_all_hp_results_L2_Linear_SVM.csv	:	input.in.intermediate;
 
 .INTERMEDIATE:	input.in.intermediate
-input.in.intermediate:	code/cat_csv_files_test.sh\
+input.in.intermediate:	code/cat_csv_files.sh\
 						output.in.intermediate
-		bash code/cat_csv_files_test.sh
+		bash code/cat_csv_files.sh
 
 
 
