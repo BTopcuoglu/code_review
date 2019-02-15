@@ -76,7 +76,7 @@ $(Logit_IMP)\
 $(Logit_ALL_FILE)	:	output.in.secondary;
 
 .SECONDARY:	output.in.secondary
-output.in.intermediate:	data/baxter.0.03.subsample.shared\
+output.in.secondary:	data/baxter.0.03.subsample.shared\
 					data/metadata.tsv\
 					$(CODE)/generateAUCs.R\
 					$(CODE)/model_pipeline.R\
