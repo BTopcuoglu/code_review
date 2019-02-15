@@ -102,7 +102,15 @@ $(PROC)/combined_all_hp_results_L2_Linear_SVM.csv	:	input.in.intermediate;
 
 .INTERMEDIATE:	input.in.intermediate
 input.in.intermediate:	code/cat_csv_files.sh\
-						output.in.intermediate
+						$(L1_BEST)\
+						$(L1_IMP)\
+						$(L1_ALL_FILE)\
+						$(L2_BEST)\
+						$(L2_IMP)\
+						$(L2_ALL_FILE)\
+						$(Logit_BEST)\
+						$(Logit_IMP)\
+						$(Logit_ALL_FILE)
 		bash code/cat_csv_files.sh
 
 
