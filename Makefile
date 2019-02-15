@@ -99,7 +99,7 @@ $(PROC)/combined_all_hp_results_L2_Logistic_Regression.csv\
 $(PROC)/combined_best_hp_results_L2_Linear_SVM.csv\
 $(PROC)/combined_all_im_features_results_L2_Linear_SVM.csv\
 $(PROC)/combined_all_hp_results_L2_Linear_SVM.csv	:	output.in.secondary\
-														code/cat_csv_files.sh\
+														code/cat_csv_files.sh
 		bash code/cat_csv_files.sh
 
 
