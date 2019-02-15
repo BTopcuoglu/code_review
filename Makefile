@@ -75,7 +75,7 @@ $(Logit_BEST)\
 $(Logit_IMP)\
 $(Logit_ALL_FILE)	:	output.in.secondary;
 
-.SECONDARY:	output.in.secondary
+.INTERMEDIATE:	output.in.secondary
 output.in.secondary:	data/baxter.0.03.subsample.shared\
 					data/metadata.tsv\
 					$(CODE)/generateAUCs.R\
