@@ -35,7 +35,7 @@ $(PROC)/combined_best_hp_results_L1_Linear_SVM.csv	:	data/baxter.0.03.subsample.
 														$(CODE)/model_interpret.R\
 														$(CODE)/main.R\
 														$(CODE)/model_selection.R\
-														code/cat_csv_files.sh\
+														code/cat_csv_files.sh
 			qsub L1_Linear_SVM.pbs
 			qsub L2_Linear_SVM.pbs
 			bash code/test_sleep.sh
