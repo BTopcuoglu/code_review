@@ -31,14 +31,13 @@
 
 #### 1. Log-in to your FLUX account and navigate to your TORQUE directory.
 
-#### 2. Dependencies and locations 
-1. Load module R version 3.5.0 
-2. Load module r-biomed-libs/3.5.0: 
+#### 2. Load your dependencies 
+- Load module R version 3.5.0 
+- Load module r-biomed-libs/3.5.0: 
 	- We do this because Caret package is used as the wrapper for all models.
 	- r-biomed-libs module has Caret downloaded.
 	- Native install of Caret takes too long.
 	
-
 #### 3. Run the following code to clone git repository.
 ```
 git clone https://github.com/BTopcuoglu/code_review
