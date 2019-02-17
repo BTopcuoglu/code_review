@@ -27,7 +27,8 @@ data/metadata.tsv	:	code/learning/load_datasets.batch
 #
 ################################################################################
 
-
+$(PROC)/combined_all_imp_features_results_L1_Linear_SVM.csv\
+$(PROC)/combined_all_hp_results_L1_Linear_SVM.csv\
 $(PROC)/combined_best_hp_results_L1_Linear_SVM.csv	:	data/baxter.0.03.subsample.shared\
 														data/metadata.tsv\
 														$(CODE)/generateAUCs.R\
@@ -39,7 +40,8 @@ $(PROC)/combined_best_hp_results_L1_Linear_SVM.csv	:	data/baxter.0.03.subsample.
 														L1_Linear_SVM.pbs
 			qsub L1_Linear_SVM.pbs
 
-
+$(PROC)/combined_all_imp_features_results_L2_Linear_SVM.csv\
+$(PROC)/combined_all_hp_results_L2_Linear_SVM.csv\
 $(PROC)/combined_best_hp_results_L2_Linear_SVM.csv	:	data/baxter.0.03.subsample.shared\
 														data/metadata.tsv\
 														$(CODE)/generateAUCs.R\
