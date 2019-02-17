@@ -24,14 +24,14 @@
 
 ### How to regenerate Figure 1
 - In Figure 1 we want to plot the generalization and prediction performances of 2 CRC models.
-- The features we use are OTU abundances.
-- The labels we predict are whether the patient has screen-relevant neoplasias or not.
-- We are comparing classification methods L1 and L2-regularized Linear Support Vector Machine. 
+- We are comparing classification methods L1 and L2-regularized Linear Support Vector Machine.
+- The features we use in the classification models are OTU abundances.
+- The labels we predict are SRN or nomal. (The patient has screen-relevant neoplasias or not.)
 - We are expecting to generate a boxplot comparing the cross-validation and testing performances of both models.
 
-#### Log-in to your FLUX account and navigate to your TORQUE directory.
+#### 1. Log-in to your FLUX account and navigate to your TORQUE directory.
 
-#### Dependencies and locations 
+#### 2. Dependencies and locations 
 1. Load module R version 3.5.0 
 2. Load module r-biomed-libs/3.5.0: 
 	- We do this because Caret package is used as the wrapper for all models.
@@ -39,7 +39,7 @@
 	- Native install of Caret takes too long.
 	
 
-#### Run the following code to clone git repository.
+#### 3. Run the following code to clone git repository.
 ```
 git clone https://github.com/BTopcuoglu/code_review
 ```
@@ -49,12 +49,12 @@ git clone https://github.com/BTopcuoglu/code_review
 
 2. Change the ```#PBS -M begumtop@umich.edu``` part in all the ```.pbs``` files to your own email.
 
-#### The Makefile will reproduce Figure 1.
+#### 4. The Makefile will reproduce Figure 1.
 ```
 qsub make_target.pbs
 ```
 
-#### Successful?
+#### 5. Successful?
 If you were able to generate ```results/figures/Figure_1.pdf```:
 
 1. Please first review the Makefile.
