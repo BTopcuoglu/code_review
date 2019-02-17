@@ -6,7 +6,7 @@
 	|- LICENSE         		# the license for this project
 	|
 	|- data/           		# Primary data, are not changed once created
-	| |- temp/     			# For 7 models, each data-split .csv file generated from .pbs files saved here
+	| |- temp/     			# For 2 models, each data-split .csv file generated from .pbs files saved here(n=600) 
 	| |- process/     		# Concatenated .csv files that have outputs of 7 models saved here
 	| |- baxter.0.03.subsample.shared      	# subsampled mothur generated file with OTUs from Marc Sze's analysis
 	| |- metadata.tsv     		        # metadata with clinical information from Marc Sze's analysis 		
