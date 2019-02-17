@@ -1,3 +1,10 @@
 
 count="$(ls -1 data/temp/ | wc -l)"
-while [ $count != 600 ]; do sleep 1m; done
+
+while :; do
+    clear;
+    if $count != 600; then
+        break
+    fi;
+    sleep 1;
+done
