@@ -38,8 +38,6 @@ $(PROC)/combined_best_hp_results_L1_Linear_SVM.csv	:	data/baxter.0.03.subsample.
 														code/cat_csv_files.sh\
 														L1_Linear_SVM.pbs
 			qsub L1_Linear_SVM.pbs
-			bash code/test_sleep.sh
-			bash code/cat_csv_files.sh
 
 
 $(PROC)/combined_best_hp_results_L2_Linear_SVM.csv	:	data/baxter.0.03.subsample.shared\
