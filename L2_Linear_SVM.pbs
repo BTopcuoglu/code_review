@@ -9,7 +9,7 @@
 #PBS -A pschloss_fluxod
 #PBS -q fluxod
 #PBS -l qos=flux
-#PBS -t 1-20
+#PBS -t 1-100
 
 # Load Modules:
 #  1) R/3.5.0   2) r-biomed-libs/3.5.0
@@ -41,8 +41,3 @@ echo "qsub working directory absolute is"
 echo $PBS_O_WORKDIR
 qstat -f $PBS_JOBID
 exit
-
-
-
-
-
