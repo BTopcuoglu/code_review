@@ -22,11 +22,16 @@
 
 
 
-#### How to regenerate Figure 1 where we look at 2 model performances (Linear L1 and L2 SVM) to predict CRC in Baxter dataset.
+### How to regenerate Figure 1
+- In Figure 1 we want to plot the generalization and prediction performances of 2 CRC models.
+- The features we use are OTU abundances.
+- The labels we predict are whether the patient has screen-relevant neoplasias or not.
+- We are comparing classification methods L1 and L2-regularized Linear Support Vector Machine. 
+- We are expecting to generate a boxplot comparing the cross-validation and testing performances of both models.
 
-##### Log-in to your FLUX account and navigate to your TORQUE directory.
+#### Log-in to your FLUX account and navigate to your TORQUE directory.
 
-##### Dependencies and locations 
+#### Dependencies and locations 
 1. Load module R version 3.5.0 
 2. Load module r-biomed-libs/3.5.0: 
 	- We do this because Caret package is used as the wrapper for all models.
