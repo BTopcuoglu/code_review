@@ -10,6 +10,8 @@
 ######################################################################
 # Load in needed functions and libraries
 source('code/learning/functions.R')
+library(ggplot2)
+library(tidyverse)
 # detach("package:randomForest", unload=TRUE) to run
 ######################################################################
 
