@@ -27,7 +27,7 @@ data/metadata.tsv	:	code/learning/load_datasets.batch
 #
 ################################################################################
 
-$(PROC)/combined_best_hp_results_L2_Linear_SVM.csv\
+
 $(PROC)/combined_best_hp_results_L1_Linear_SVM.csv	:	data/baxter.0.03.subsample.shared\
 														data/metadata.tsv\
 														$(CODE)/generateAUCs.R\
@@ -36,12 +36,25 @@ $(PROC)/combined_best_hp_results_L1_Linear_SVM.csv	:	data/baxter.0.03.subsample.
 														$(CODE)/main.R\
 														$(CODE)/model_selection.R\
 														code/cat_csv_files.sh\
-														L1_Linear_SVM.pbs\
-														L2_Linear_SVM.pbs
+														L1_Linear_SVM.pbs
 			qsub L1_Linear_SVM.pbs
-			qsub L2_Linear_SVM.pbs
 			bash code/test_sleep.sh
 			bash code/cat_csv_files.sh
+
+
+$(PROC)/combined_best_hp_results_L2_Linear_SVM.csv\	:	data/baxter.0.03.subsample.shared\
+														data/metadata.tsv\
+														$(CODE)/generateAUCs.R\
+														$(CODE)/model_pipeline.R\
+														$(CODE)/model_interpret.R\
+														$(CODE)/main.R\
+														$(CODE)/model_selection.R\
+														code/cat_csv_files.sh\
+														L2_Linear_SVM.pbs
+			qsub L1_Linear_SVM.pbs
+			bash code/test_sleep.sh
+			bash code/cat_csv_files.sh
+
 
 
 ################################################################################
