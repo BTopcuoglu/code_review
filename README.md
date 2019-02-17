@@ -39,7 +39,7 @@ git clone https://github.com/BTopcuoglu/code_review
 
 #### The Makefile will reproduce Figure 1.
 ```
-make results/figures/Figure_1.pdf
+qsub make_target.pbs
 ```
 
 
