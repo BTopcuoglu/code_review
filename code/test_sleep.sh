@@ -6,5 +6,5 @@ while :; do
     if [ "$count" == 600 ]; then
         break
     fi;
-    sleep 1;
+    sleep 1m;
 done
