@@ -22,7 +22,7 @@
 
 
 
-### How to regenerate Figure 1 where we look at 7 model performances to predict CRC in Baxter dataset.
+### How to regenerate Figure 1 where we look at 2 model performances (Linear L1 and L2 SVM) to predict CRC in Baxter dataset.
 
 #### Dependencies and locations for R code
 * R version 3.5.0 
