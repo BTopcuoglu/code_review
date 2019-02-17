@@ -22,24 +22,39 @@
 
 
 
-### How to regenerate Figure 1 where we look at 2 model performances (Linear L1 and L2 SVM) to predict CRC in Baxter dataset.
+#### How to regenerate Figure 1 where we look at 2 model performances (Linear L1 and L2 SVM) to predict CRC in Baxter dataset.
 
-#### Dependencies and locations for R code
-* R version 3.5.0 
-* Caret package is used as the wrapper for all models.
-	- Before running on FLUX, make sure to load module r-biomed-libs/3.5.0 which has caret loaded already.
-	- Caret download takes long.
-* Run from project directory on HPC.
-* The files mentioned above at process/ from Marc Sze's analysis: https://github.com/SchlossLab/Sze_CRCMetaAnalysis_mBio_2018
+##### Log-in to your FLUX account and navigate to your TORQUE directory.
+
+##### Dependencies and locations 
+1. Load module R version 3.5.0 
+2. Load module r-biomed-libs/3.5.0: 
+	- We do this because Caret package is used as the wrapper for all models.
+	- r-biomed-libs module has Caret downloaded.
+	- Native install of Caret takes too long.
+	
 
 #### Run the following code to clone git repository.
 ```
 git clone https://github.com/BTopcuoglu/code_review
 ```
+1. We will run everything from project directory on FLUX. Navigate to project directory:
+
+```cd code_review```
+
+2. Change the ```#PBS -M begumtop@umich.edu``` part in all the ```.pbs``` files to your own email.
 
 #### The Makefile will reproduce Figure 1.
 ```
 qsub make_target.pbs
 ```
+
+#### Successful?
+If you were able to generate ```results/figures/Figure_1.pdf```:
+
+1. Please first review the Makefile.
+2. Then please review the scripts in the code/learning directory.
+3. Please also take a look at the .pbs files.
+
 
 
