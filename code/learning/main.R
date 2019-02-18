@@ -33,8 +33,6 @@
 
 
 ################### IMPORT LIBRARIES and FUNCTIONS ###################
-install.packages("tidyverse")
-library(tidyverse)
 # The dependinces for this script are consolidated in the first part
 deps = c("caret" ,"rpart", "xgboost", "randomForest", "kernlab","LiblineaR", "pROC");
 for (dep in deps){
