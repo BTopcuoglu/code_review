@@ -37,6 +37,7 @@
 ```
 module load R/3.5.0
 ```
+- We will need tidyverse and caret to be able to run all the models.
 
 - Load module r-biomed-libs/3.5.0: 
 	- We do this because Caret package is used as the wrapper for all models.
