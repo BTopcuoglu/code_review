@@ -8,8 +8,7 @@
 ######################################################################
 
 ######################################################################
-# Load in needed functions and libraries
-source('code/learning/functions.R')
+
 # The dependinces for this script are consolidated in the first part
 deps = c("tidyverse" ,"ggplot2");
 for (dep in deps){
@@ -19,6 +18,8 @@ for (dep in deps){
   library(dep, verbose=FALSE, character.only=TRUE)
 }
 # detach("package:randomForest", unload=TRUE) to run
+# Load in needed functions and libraries
+source('code/learning/functions.R')
 ######################################################################
 
 
