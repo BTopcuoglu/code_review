@@ -24,7 +24,7 @@
 
 ### How to regenerate Figure 1
 - In Figure 1 we want to plot the generalization and prediction performances of 2 CRC models.
-- We are comparing classification methods L1 and L2-regularized Linear Support Vector Machine.
+- We are comparing classification methods L2-regularized Logistic Regression and L2-regularized Linear Support Vector Machine.
 - The features we use in the classification models are OTU abundances and FIT results.
 - The labels we predict are SRN or nomal. (The patient has screen-relevant neoplasias or not.)
 	- We get the OTU abundances, FIT results and Colonoscopy diagnosis from Marc's Meta study using the script ```code/learning/load_datasets.batch``` (We will do this with the Makefile so no worries about it now).
