@@ -10,8 +10,14 @@
 ######################################################################
 # Load in needed functions and libraries
 source('code/learning/functions.R')
-library(ggplot2)
-library(tidyverse)
+# The dependinces for this script are consolidated in the first part
+deps = c("tidyverse" ,"ggplot2");
+for (dep in deps){
+  if (dep %in% installed.packages()[,"Package"] == FALSE){
+    install.packages(as.character(dep), quiet=TRUE, repos = "http://cran.us.r-project.org", dependencies=TRUE);
+  }
+  library(dep, verbose=FALSE, character.only=TRUE)
+}
 # detach("package:randomForest", unload=TRUE) to run
 ######################################################################
 
