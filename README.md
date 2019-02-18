@@ -12,7 +12,6 @@
 	| |- metadata.tsv     		        # metadata with clinical information from Marc Sze's analysis 		
 	|- code/          			# any programmatic code
 	| |- learning/    			# generalization performance of model
-	| |- testing/     			# building final model
 	|
 	|- results/        			# all output from workflows and analyses
 	| |- tables/      			# tables and .Rmd code of the tables to be rendered with kable in R
