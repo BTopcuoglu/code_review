@@ -25,8 +25,9 @@
 ### How to regenerate Figure 1
 - In Figure 1 we want to plot the generalization and prediction performances of 2 CRC models.
 - We are comparing classification methods L1 and L2-regularized Linear Support Vector Machine.
-- The features we use in the classification models are OTU abundances.
+- The features we use in the classification models are OTU abundances and FIT results.
 - The labels we predict are SRN or nomal. (The patient has screen-relevant neoplasias or not.)
+	- We get the OTU abundances, FIT results and Colonoscopy diagnosis from Marc's Meta study using the script ```code/learning/load_datasets.batch```.
 - We are expecting to generate a boxplot comparing the cross-validation and testing performances of both models.
 
 #### 1. Log-in to your FLUX account and navigate to your TORQUE directory.
@@ -44,7 +45,9 @@ git clone https://github.com/BTopcuoglu/code_review
 ```
 1. We will run everything from project directory on FLUX. Navigate to project directory:
 
-```cd code_review```
+```
+cd code_review
+```
 
 2. Change the ```#PBS -M begumtop@umich.edu``` part in all the ```.pbs``` files to your own email.
 
