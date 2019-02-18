@@ -1,4 +1,4 @@
-data/temp/*
+data/temp/*.csv
 .DS_Store
 results/.DS_Store
 *.o*
