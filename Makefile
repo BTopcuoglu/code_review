@@ -27,9 +27,9 @@ data/metadata.tsv	:	code/learning/load_datasets.batch
 #
 ################################################################################
 
-$(PROC)/combined_all_imp_features_results_L1_Linear_SVM.csv\
-$(PROC)/combined_all_hp_results_L1_Linear_SVM.csv\
-$(PROC)/combined_best_hp_results_L1_Linear_SVM.csv	:	data/baxter.0.03.subsample.shared\
+$(PROC)/combined_all_imp_features_results_L2_Logistic_Regression.csv\
+$(PROC)/combined_all_hp_results_L2_Logistic_Regression.csv\
+$(PROC)/combined_best_hp_results_L2_Logistic_Regression.csv	:	data/baxter.0.03.subsample.shared\
 														data/metadata.tsv\
 														$(CODE)/generateAUCs.R\
 														$(CODE)/model_pipeline.R\
@@ -37,8 +37,8 @@ $(PROC)/combined_best_hp_results_L1_Linear_SVM.csv	:	data/baxter.0.03.subsample.
 														$(CODE)/main.R\
 														$(CODE)/model_selection.R\
 														code/cat_csv_files.sh\
-														L1_Linear_SVM.pbs
-			qsub L1_Linear_SVM.pbs
+														L2_Logistic_Regression.pbs
+			qsub L2_Logistic_Regression.pbs
 
 $(PROC)/combined_all_imp_features_results_L2_Linear_SVM.csv\
 $(PROC)/combined_all_hp_results_L2_Linear_SVM.csv\

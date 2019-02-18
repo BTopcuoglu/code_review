@@ -24,13 +24,13 @@ library(tidyverse)
 best_files <- list.files(path= 'data/process', pattern='combined_best.*', full.names = TRUE)
 
 
-l2svm <- read_files(best_files[2])
-l1svm <- read_files(best_files[1])
+l2svm <- read_files(best_files[1])
+logit <- read_files(best_files[2])
 
 
 
 
-best_performance <- bind_rows(l2svm, l1svm)%>%
+best_performance <- bind_rows(l2svm, logit)%>%
   melt_data()
 
 ######################################################################
