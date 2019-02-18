@@ -5,7 +5,7 @@
 ######################################################################
 
 ######################################################################
-# Description: 
+# Description:
 
 # This script will read in data from Baxter et al. 2016
 #     - 0.03 subsampled OTU dataset
@@ -13,28 +13,30 @@
 
 
 # It will run the following machine learning pipelines:
-#     - L2 Logistic Regression 
+#     - L2 Logistic Regression
 #     - L1 and L2 Linear SVM
 #     - RBF SVM
 #     - Decision Tree
-#     - Random Forest 
-#     - XGBoost 
+#     - Random Forest
+#     - XGBoost
 ######################################################################
 
 ######################################################################
-# Dependencies and Outputs: 
+# Dependencies and Outputs:
 
 # Be in the project directory.
 
 # The outputs are:
-#   (1) AUC values for cross-validation and testing for each data-split 
+#   (1) AUC values for cross-validation and testing for each data-split
 #   (2) meanAUC values for each hyper-parameter tested during each split.
 ######################################################################
 
 
 ################### IMPORT LIBRARIES and FUNCTIONS ###################
+install.packages("tidyverse")
+library(tidyverse)
 # The dependinces for this script are consolidated in the first part
-deps = c("caret" ,"rpart", "xgboost", "randomForest", "kernlab","LiblineaR", "pROC", "tidyverse");
+deps = c("caret" ,"rpart", "xgboost", "randomForest", "kernlab","LiblineaR", "pROC");
 for (dep in deps){
   if (dep %in% installed.packages()[,"Package"] == FALSE){
     install.packages(as.character(dep), quiet=TRUE, repos = "http://cran.us.r-project.org", dependencies=TRUE);
@@ -50,8 +52,8 @@ source('code/learning/model_interpret.R')
 ######################################################################
 
 ######################## DATA PREPARATION #############################
-# Features: Hemoglobin levels(FIT) and 16S rRNA gene sequences(OTUs) in the stool 
-# Labels: - Colorectal lesions of 490 patients. 
+# Features: Hemoglobin levels(FIT) and 16S rRNA gene sequences(OTUs) in the stool
+# Labels: - Colorectal lesions of 490 patients.
 #         - Defined as cancer or not.(Cancer here means: SRN)
 #                                     SRNs are adv adenomas+carcinomas
 
@@ -80,11 +82,11 @@ data$dx <- factor(data$dx, labels=c("normal", "cancer"))
 
 ######################## RUN PIPELINE #############################
 # Choose which classification methods we want to run on command line
-#                "L2_Logistic_Regression", 
-#                "L1_Linear_SVM", 
+#                "L2_Logistic_Regression",
+#                "L1_Linear_SVM",
 #                "L2_Linear_SVM",
-#                "RBF_SVM", 
-#                "Decision_Tree", 
+#                "RBF_SVM",
+#                "Decision_Tree",
 #                "Random_Forest",
 #                "XGBoost"
 
@@ -96,7 +98,7 @@ start_time <- Sys.time()
 #  - These arguments will be saved into variable "input"
 #  - First argument is the seed number which is the array index
 #  - Second argument is the model name (one of the list above)
-input <- commandArgs(trailingOnly=TRUE) 
+input <- commandArgs(trailingOnly=TRUE)
 seed <- as.numeric(input[1])
 model <- input[2]
 # Then arguments 1 and 2 will be placed respectively into the functions:
@@ -111,7 +113,3 @@ get_results(data, model, input[1])
 end_time <- Sys.time()
 print(end_time - start_time)
 ###################################################################
-
-
-
-
