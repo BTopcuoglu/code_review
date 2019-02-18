@@ -34,10 +34,17 @@
 
 #### 2. Load your dependencies 
 - Load module R version 3.5.0 
+```
+module load R/3.5.0
+```
+
 - Load module r-biomed-libs/3.5.0: 
 	- We do this because Caret package is used as the wrapper for all models.
 	- r-biomed-libs module has Caret downloaded.
 	- Native install of Caret takes too long.
+```
+module load r-biomed-libs/3.5.0
+```
 	
 #### 3. Run the following code to clone git repository.
 ```
