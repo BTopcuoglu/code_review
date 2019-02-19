@@ -29,7 +29,7 @@
 	- We get the OTU abundances, FIT results and Colonoscopy diagnosis from Marc's Meta study using the script ```code/learning/load_datasets.batch``` (We will do this with the Makefile so no worries about it now).
 - We are expecting to generate a boxplot comparing the cross-validation and testing performances of both models.
 
-#### 1. Log-in to your FLUX account and navigate to your TORQUE directory.
+#### 1. Log-in to your FLUX account and navigate to your TURBO directory.
 
 #### 2. Load your dependencies 
 - Load module R version 3.5.0 
