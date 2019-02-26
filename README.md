@@ -88,7 +88,10 @@ Were you able to generate ```results/figures/Figure_1.pdf```:
 
 If not or if you see something that will make the code better:
 
-1. Make changes as you see fit.
+1. Make changes as you see fit. Re-run `qsub make_target.pbs` 
+
+__Did that work??__
+
 2. Commit your changes.
 3. Push the changes by:
 ```
