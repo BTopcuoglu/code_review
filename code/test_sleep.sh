@@ -4,5 +4,5 @@ while :; do
     if [ "$count" == 31 ]; then
         break
     fi;
-    sleep 1m;
+    sleep 5s;
 done
