@@ -7,17 +7,13 @@
 ######################################################################
 # Dependencies and Outputs: 
 # This function accept:
-#   1. Data file generated in main.R
+#   1. Dataframe generated in main.R
 #   2. Model name defined in command line: 
 #       "L2_Logistic_Regression"
-#       "L1_Linear_SVM"
 #       "L2_Linear_SVM"
-#       "RBF_SVM"
-#       "Decision_Tree"
-#       "Random_Forest"
-#       "XGBoost"
+
 #   3. Seed number defined in command line:
-#       [1-100]
+#       [1-5]
 
 
 # Call as source when using the function. The function is:
