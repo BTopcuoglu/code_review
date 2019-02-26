@@ -46,29 +46,62 @@ module load R/3.5.0
 module load r-biomed-libs/3.5.0
 ```
 	
-#### 3. Run the following code to clone git repository.
+#### 3. Fork and clone the forked repository.
+
+- On the upper right of this web-page you'll see a fork option. Click and fork this repo to your Github account.
+- Now you need a copy locally, so find the “SSH clone URL” in the right hand column and use that to clone locally using a terminal:
+
 ```
-git clone https://github.com/BTopcuoglu/code_review
+git clone *fork URL*
 ```
-1. We will run everything from project directory on FLUX. Navigate to project directory:
+3.1. We will run everything from project directory on FLUX. Navigate to the forked project directory:
 
 ```
 cd code_review
 ```
 
-2. Change the ```#PBS -M begumtop@umich.edu``` part in all the ```.pbs``` files to your own email.
+3.2. You need to set up a new remote that points to the original project so that you can grab any changes and bring them into your local copy.
 
-#### 4. The Makefile will reproduce Figure 1.
+```
+git remote add upstream https://github.com/BTopcuoglu/code_review
+```
+You now have two remotes for this project on disk:
+
+Origin which points to your GitHub fork of the project. You can read and write to this remote.
+Upstream which points to the main project’s GitHub repository. You can only read from this remote.
+
+3.3. Now that you have the source code start by:
+
+```
+$ git checkout master
+$ git pull upstream master && git push origin master
+$ git checkout -b reproduce/test
+```
+
+#### 4. Let's see if we can reproduce Figure 1.
+
 ```
 qsub make_target.pbs
 ```
-
 #### 5. Successful?
-If you were able to generate ```results/figures/Figure_1.pdf```:
+Were you able to generate ```results/figures/Figure_1.pdf```:
 
-1. Please first review the Makefile.
-2. Then please review the scripts in the code/learning directory.
-3. Please also take a look at the .pbs files.
+If not or if you see something that will make the code better:
+
+1. Make changes as you see fit.
+2. Commit your changes.
+3. Push the changes by:
+```
+git push -u origin reproduce/test
+```
+This will create the branch on your GitHub project. The -u flag links this branch with the remote one, so that in the future, you can simply type git push origin.
+
+Swap back to the browser and navigate to your fork of the project and you’ll see that your new branch is listed at the top with a handy “Compare & pull request” button. Go ahead and press the button! Describe changes and create pull request. 
+
+#### 6. I will review and accept or decline changes.
+
+
+
 
 
 
