@@ -14,11 +14,7 @@
 
 # It will run the following machine learning pipelines:
 #     - L2 Logistic Regression
-#     - L1 and L2 Linear SVM
-#     - RBF SVM
-#     - Decision Tree
-#     - Random Forest
-#     - XGBoost
+#     - L2 Linear SVM
 ######################################################################
 
 ######################################################################
@@ -81,12 +77,7 @@ data$dx <- factor(data$dx, labels=c("normal", "cancer"))
 ######################## RUN PIPELINE #############################
 # Choose which classification methods we want to run on command line
 #                "L2_Logistic_Regression",
-#                "L1_Linear_SVM",
 #                "L2_Linear_SVM",
-#                "RBF_SVM",
-#                "Decision_Tree",
-#                "Random_Forest",
-#                "XGBoost"
 
 
 # We want to get walltime for each model for and each data-split t
