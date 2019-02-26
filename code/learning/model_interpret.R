@@ -13,10 +13,7 @@
 #    Filenames to put to function:
 #       1. "L2_Logistic_Regression"
 #       2. "L2_Linear_SVM"
-#       3. "RBF_SVM"
-#       4. "Decision_Tree"
-#       5. "Random_Forest"
-#       6. "XGBoost"
+
 
 # Usage:
 # Call as source when using the function. The function is:
