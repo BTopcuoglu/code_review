@@ -51,7 +51,7 @@ $(PROC)/best_hp_results_L2_Linear_SVM_%.csv	:	data/baxter.0.03.subsample.shared\
 
 
 
-SEEDS=$(shell seq 1 100)
+SEEDS=$(shell seq 0 99)
 
 L2_LOGISTIC_REGRESSION_REPS=$(foreach S,$(SEEDS),$(PROC)/best_hp_results_L2_Logistic_Regression_$(S).csv)
 
